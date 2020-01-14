@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RacaCachorros</string>
+    <string name="title_activity_raca_selecionada">RacaSelecionada</string>
+    <string name="title_activity_raca">RacaActivity</string>
 </resources>
