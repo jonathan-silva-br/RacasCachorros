@@ -6,29 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".RacaActivity">
 
-    <ImageView
-        android:id="@+id/imageRaca"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+    <TextView
+        android:id="@+id/txtRaca"
+        android:layout_width="234dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="72dp"
+        android:gravity="center"
+        android:text="Cachorro aqui"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/listSubRaca"
-        android:layout_width="404dp"
-        android:layout_height="536dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+    <LinearLayout
+        android:layout_width="414dp"
+        android:layout_height="420dp"
+        android:layout_marginTop="96dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageRaca" />
+        app:layout_constraintTop_toBottomOf="@+id/txtRaca">
+
+        <ListView
+            android:id="@+id/listSubRaca"
+            android:layout_width="301dp"
+            android:layout_height="349dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="52dp"
+            android:layout_marginLeft="52dp"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
