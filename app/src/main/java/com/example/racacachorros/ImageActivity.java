@@ -1,6 +1,7 @@
 package com.example.racacachorros;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -53,6 +54,11 @@ public class ImageActivity extends AppCompatActivity {
 
                 try {
                     String img = response.get("message").toString();
+                    SharedPreferences imagem = getSharedPreferences("ultimage", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = imagem.edit();
+                    editor.putString("ultima",img);
+                    editor.apply();
+
                     Picasso.get().load(img).into(imageView);
 
                 }catch (Exception e ){

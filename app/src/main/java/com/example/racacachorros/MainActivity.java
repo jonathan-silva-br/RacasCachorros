@@ -3,11 +3,13 @@ package com.example.racacachorros;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +22,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,12 +38,15 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> racas;
     private RequestQueue mQueue;
     private String raca;
+    private ImageView imgUltima;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        imgUltima = findViewById(R.id.imgUltima);
 
         mQueue = Volley.newRequestQueue(this);
         listRacas = findViewById(R.id.listRacas);
@@ -126,5 +132,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         mQueue.add(request);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        SharedPreferences ultimaImage = getSharedPreferences("ultimage", MODE_PRIVATE);
+        String urlReserva = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRICxvGupS-jEH5ZoRxjIzJxHK8bQ3Kls_Wnr-IBB2PHWAl1aH9";
+        String urlShared = ultimaImage.getString("ultima",urlReserva);
+        Picasso.get().load(urlShared).into(imgUltima);
+
     }
 }
